@@ -41,7 +41,7 @@ public class MemberServiceTest {
 
         //then
         em.flush();// 실질적으로 DB 에 반영후  롤백 처리 한다. insert 문을 볼수 있다. DB 에 가면 데이터는 안보인다.
-        Assert.assertEquals(member,memberRepository.findOne(savedId));
+        Assert.assertEquals(member,memberRepository.findById(savedId).get());
     }
 
     @Test(expected = IllegalStateException.class)
